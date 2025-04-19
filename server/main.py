@@ -21,7 +21,7 @@ def root():
     return {"message": "Hello from production!"}
 
 @app.get("/test")
-def root():
+def roottest():
     return {"message": "THE SERVER IS UP"}
 
 @app.post("/upload")
