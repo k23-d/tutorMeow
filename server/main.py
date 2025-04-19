@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from supabase_client import supabase
 from datetime import datetime
 import os
+import uvicorn 
 
 
 print("✅ FastAPI app loading...")  # Add this at the top
