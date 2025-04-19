@@ -7,11 +7,18 @@ def validate_pdf_with_ai(text: str) -> bool:
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are an expert executive assistant and academic planner."},
-            {"role": "user", "content": "Is this document syllabus-related?"},
+            {
+                "role": "system",
+                "content": "You're a strict academic assistant. Reply only with YES or NO. Do not elaborate. If the text is a syllabus for a university-level course, say YES. Otherwise, say NO."
+            },
+            {
+                "role": "user",
+                "content": f"Here is the text: {text}\n\nIs this a syllabus document?"
+            }
         ],
-        temperature=0.2,
+        temperature=0
     )
+    print("This is the response")
     print(response.choices[0].message.content)
     result = response.choices[0].message.content.strip().lower()
 
