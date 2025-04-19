@@ -2,6 +2,8 @@ from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from supabase_client import supabase
 from datetime import datetime
+import os
+
 
 print("✅ FastAPI app loading...")  # Add this at the top
 
