@@ -28,7 +28,7 @@ async function upload() {
   try {
     await uploadFile(files.value[0], 'karna23')
     status.value = 'success'
-  } catch {
+  } catch(error) {
     const message = await error?.response?.json?.() || error?.message;
 
     if (message?.error === "File is not syllabus content.") {
