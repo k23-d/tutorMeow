@@ -1,8 +1,8 @@
 {
   "build": {
-    "command": "pip install -r server/requirements.txt"
+    "command": "pip install -r requirements.txt"
   },
   "start": {
-    "command": "uvicorn server.main:app --host 0.0.0.0 --port 8080"
+    "command": "python run.py"
   }
 }
