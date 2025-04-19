@@ -3,3 +3,6 @@ uvicorn
 python-multipart
 supabase
 python-dotenv
+starlette<0.47.0,>=0.46.0
+pymupdf
+openai
