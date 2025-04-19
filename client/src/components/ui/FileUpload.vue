@@ -24,12 +24,18 @@ async function upload() {
   const formData = new FormData()
   formData.append('file', files.value[0])
   formData.append('user_id', 'karna23')
-  console.log(formData)
+  
   try {
     await uploadFile(files.value[0], 'karna23')
     status.value = 'success'
   } catch {
-    status.value = 'error'
+    const message = await error?.response?.json?.() || error?.message;
+
+    if (message?.error === "File is not syllabus content.") {
+      status.value = "invalid";
+    } else {
+      status.value = "error";
+    }
   }
 }
 </script>
