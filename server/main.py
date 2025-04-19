@@ -14,6 +14,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def read_root():
+    return {"status": "running"}
+
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...), user_id: str = Form(...)):
     file_bytes = await file.read()
