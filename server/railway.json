@@ -1,4 +1,4 @@
-v{
+{
   "build": {
     "command": "pip install -r server/requirements.txt"
   },
