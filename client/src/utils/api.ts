@@ -1,3 +1,5 @@
+// src/utils/api.ts
+
 export async function uploadFile(file: File, user_id: string) {
   const formData = new FormData();
   formData.append("file", file);
@@ -8,7 +10,11 @@ export async function uploadFile(file: File, user_id: string) {
     body: formData,
   });
 
-  if (!response.ok) throw new Error("Upload failed");
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    const message = errorData?.error || "Upload failed";
+    throw new Error(message);
+  }
 
-  return response.json();
+  return await response.json();
 }
