@@ -79,6 +79,7 @@ async function upload() {
 
       <div v-if="status === 'uploading'" class="mt-4 text-blue-500 text-sm">Uploading...</div>
       <div v-if="status === 'success'" class="mt-4 text-green-500 text-sm">Upload successful!</div>
+      <div v-else-if="status === 'invalid'" class="text-red-500 mt-2">⚠️ This file doesn’t look like a valid syllabus. Please try again.</div>
       <div v-if="status === 'error'" class="mt-4 text-red-500 text-sm">Upload failed. Try again.</div>
 
       <div class="mt-6">
