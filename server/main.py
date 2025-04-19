@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from supabase_client import supabase
 from datetime import datetime
 
+print("✅ FastAPI app loading...")  # Add this at the top
+
 app = FastAPI()
 
 # Allow CORS from frontend (adjust URL as needed)
