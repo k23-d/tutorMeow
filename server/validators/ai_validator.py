@@ -1,21 +1,13 @@
-import openai
-import os
+from openai import OpenAI
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def validate_pdf_with_ai(text: str) -> bool:
-    prompt = f"""
-    A user uploaded this document. Determine if it's syllabus-related or academic material.
-
-    Content:
-    {text}
-
-    Respond only with YES or NO.
-    """
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.2
-    )
-    result = response.choices[0].message.content.strip().lower()
-    return "yes" in result
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "You are an expert executive assistant and academic planner."},
+        {"role": "user", "content": "Is this document syllabus-related?"},
+    ],
+    temperature=0.2,
+)
+print(response.choices[0].message.content)
