@@ -45,6 +45,6 @@ async def upload_file(file: UploadFile = File(...), user_id: str = Form(...)):
     return {"status": "success", "path": storage_path}
 
 if __name__ == "__main__":
+    print("🔥 Finally working da...")
     port = int(os.environ.get("PORT", 8080))
-    print(f"⚙️ Launching app on port {port}")
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False, log_level="debug")
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
