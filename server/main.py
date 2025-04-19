@@ -15,12 +15,8 @@ app.add_middleware(
 )
 
 @app.get("/")
-def read_root():
-    return {"status": "running"}
-
-@app.get("/test")
-def read_test():
-    return {"status": "THE SERVER WORKS!"}
+def root():
+    return {"message": "Hello from production!"}
 
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...), user_id: str = Form(...)):
