@@ -47,7 +47,7 @@ async def upload_file(file: UploadFile = File(...), user_id: str = Form(...)):
             "user_id": user_id,
             "filename": filename,
             "path": storage_path,
-            "uploaded_at": timestamp
+            "created_at": timestamp
         }).execute()
         print(f"DB insert response: {db_response}")
 
