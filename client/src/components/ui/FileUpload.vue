@@ -24,9 +24,9 @@ async function upload() {
   const formData = new FormData()
   formData.append('file', files.value[0])
   formData.append('user_id', 'karna23')
-
+  console.log(formData)
   try {
-    await uploadFile(formData)
+    await uploadFile(files.value[0], 'karna23')
     status.value = 'success'
   } catch {
     status.value = 'error'
