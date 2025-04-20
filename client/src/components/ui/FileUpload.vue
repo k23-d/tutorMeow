@@ -16,6 +16,8 @@ function handleChange(e: Event) {
   if (fileList && fileList[0]) {
     files.value = Array.from(fileList)
   }
+
+  input.value = '';
 }
 
 async function upload() {
@@ -38,6 +40,7 @@ async function upload() {
   } else {
     status.value = 'error';
   }
+  fileInput.value!.value = '';
 }
 }
 </script>
