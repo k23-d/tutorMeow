@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "npx serve dist"
+    "start": "npx serve dist",
+    "postinstall": "npm install"
   },
   "dependencies": {
     "vue": "^3.3.0"
