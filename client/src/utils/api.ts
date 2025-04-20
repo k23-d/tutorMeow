@@ -12,7 +12,7 @@ export async function uploadFile(file: File, user_id: string) {
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
-    console.log(errorData);
+    console.log("this is the error - "+errorData);
     const message = errorData?.error || "Upload failed";
     throw new Error(message);
   }
