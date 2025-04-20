@@ -5,5 +5,5 @@ def insert_metadata(user_id: str, filename: str, path: str, timestamp: str):
         "user_id": user_id,
         "filename": filename,
         "path": path,
-        "uploaded_at": timestamp
+        "created_at": timestamp
     }).execute()
