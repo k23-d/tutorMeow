@@ -1,15 +1,5 @@
 {
-  "projects": {},
-  "builds": [
-    {
-      "src": "client/vite.config.js",
-      "use": "@vercel/vite"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "client/index.html"
-    }
-  ]
+  "buildCommand": "cd client && npm install && npm run build",
+  "outputDirectory": "client/dist",
+  "framework": "vite"
 }
