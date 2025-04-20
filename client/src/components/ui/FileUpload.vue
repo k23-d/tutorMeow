@@ -47,7 +47,7 @@ async function upload() {
 
 <template>
   <div
-    class="w-full max-w-4xl mx-auto min-h-96 border border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg"
+  class="w-full max-w-4xl mx-auto min-h-96 border border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg"
   >
     <div
       class="p-10 group cursor-pointer w-full relative overflow-hidden"
@@ -70,6 +70,18 @@ async function upload() {
         </p>
       </div>
 
+      <!-- Icon Upload Block -->
+      <div class="relative w-full mt-10 max-w-xl mx-auto">
+        <div
+          class="relative z-40 bg-white dark:bg-neutral-900 flex items-center justify-center h-32 mt-4 w-full max-w-[8rem] mx-auto rounded-md shadow-[0px_10px_50px_rgba(0,0,0,0.1)]"
+        >
+          <!-- Replace with @tabler/icons if using it -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-neutral-600 dark:text-neutral-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 5v14m-7-7h14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      
       <div v-if="files.length" class="mt-6">
         <p class="text-sm text-neutral-500">Selected: {{ files[0].name }}</p>
         <p class="text-xs text-neutral-400">
