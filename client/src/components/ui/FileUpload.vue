@@ -29,23 +29,16 @@ async function upload() {
     await uploadFile(files.value[0], 'karna23')
     status.value = 'success'
   } 
-  catch(error) {
-    let message = '';
-    try {
-        const res = await error.response?.json?.();
-        message = res?.error || '';
-        console.log("Server error message:", message);
+  catch (error) {
+  let message = error?.message || 'Unknown error';
+  console.log("Caught error:", message);
 
-      } catch (jsonErr) {
-        message = error?.message || 'Unknown error';
-      }
-    
-      if (message === "File is not syllabus content.") {
-        status.value = "invalid";
-      } else {
-        status.value = "error";
-      } 
+  if (message === "File is not syllabus content.") {
+    status.value = 'invalid';
+  } else {
+    status.value = 'error';
   }
+}
 }
 </script>
 
