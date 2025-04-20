@@ -28,14 +28,21 @@ async function upload() {
   try {
     await uploadFile(files.value[0], 'karna23')
     status.value = 'success'
-  } catch(error) {
-    const message = await error?.response?.json?.() || error?.message;
-
-    if (message?.error === "File is not syllabus content.") {
-      status.value = "invalid";
-    } else {
-      status.value = "error";
-    }
+  } 
+  catch(error) {
+    let message = '';
+    try {
+        const res = await error.response?.json?.();
+        message = res?.error || '';
+      } catch (jsonErr) {
+        message = error?.message || 'Unknown error';
+      }
+    
+      if (message === "File is not syllabus content.") {
+        status.value = "invalid";
+      } else {
+        status.value = "error";
+      } 
   }
 }
 </script>
