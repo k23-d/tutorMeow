@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Study Planner</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Upload</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="upload-wrapper">
+    <div class="upload-container">
+      <h2>Upload file</h2>
+      <p>Drag or drop your files here or click to upload</p>
+
+      <div class="upload-box" id="uploadBox">
+        <img src="/upload-icon.svg" alt="Upload" />
+        <input type="file" id="fileInput" class="file-input" />
+      </div>
+    </div>
+  </div>
+</body>
 </html>
