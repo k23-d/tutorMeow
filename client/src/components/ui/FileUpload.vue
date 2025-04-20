@@ -34,6 +34,8 @@ async function upload() {
     try {
         const res = await error.response?.json?.();
         message = res?.error || '';
+        console.log("Server error message:", message);
+
       } catch (jsonErr) {
         message = error?.message || 'Unknown error';
       }
