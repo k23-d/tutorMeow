@@ -53,6 +53,7 @@ async function upload() {
       class="p-10 group cursor-pointer w-full relative overflow-hidden"
       @click.stop="triggerInput"
     >
+      <GridPattern />
       <input
         ref="fileInput"
         type="file"
@@ -61,7 +62,7 @@ async function upload() {
         @click.stop
       />
 
-      <div class="text-center space-y-2">
+      <div class="relative z-10 flex flex-col items-center justify-center py-10">
         <p class="font-bold text-neutral-700 dark:text-neutral-300">
           Upload file
         </p>
@@ -69,18 +70,7 @@ async function upload() {
           Drag or drop your files here or click to upload
         </p>
       </div>
-
-      <!-- Icon Upload Block -->
-      <div class="relative w-full mt-10 max-w-xl mx-auto">
-        <div
-          class="relative z-40 bg-white dark:bg-neutral-900 flex items-center justify-center h-32 mt-4 w-full max-w-[8rem] mx-auto rounded-md shadow-[0px_10px_50px_rgba(0,0,0,0.1)]"
-        >
-          <!-- Replace with @tabler/icons if using it -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-neutral-600 dark:text-neutral-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M12 5v14m-7-7h14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </div>
+      <UploadIcon class="mt-4" />
       
       <div v-if="files.length" class="mt-6">
         <p class="text-sm text-neutral-500">Selected: {{ files[0].name }}</p>
@@ -101,12 +91,12 @@ async function upload() {
       <div v-if="status === 'error'" class="mt-4 text-red-500 text-sm">Upload failed. Try again.</div>
 
       <div class="mt-6">
-        <button
-          @click.stop="upload"
-          class="bg-black text-white px-4 py-2 rounded hover:bg-neutral-800 transition"
+         <button
+        @click.stop="upload"
+        class="mt-6 bg-black text-white px-4 py-2 rounded hover:bg-neutral-800 transition"
         >
-          Upload
-        </button>
+        Upload
+      </button>
       </div>
     </div>
   </div>
