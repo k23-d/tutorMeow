@@ -51,13 +51,14 @@ async function upload() {
   >
     <div
       class="p-10 group cursor-pointer w-full relative overflow-hidden"
-      @click="triggerInput"
+      @click.stop="triggerInput"
     >
       <input
         ref="fileInput"
         type="file"
         class="hidden"
         @change="handleChange"
+        @click.stop
       />
 
       <div class="text-center space-y-2">
