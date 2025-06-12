@@ -53,7 +53,7 @@ async def upload_file(file: UploadFile = File(...), user_id: str = Form(...)):
         insert_metadata(user_id, filename, storage_path, timestamp)
 
         # ✅ Notify n8n webhook here
-        n8n_url = "https://primary-production-9e68.up.railway.app/webhook/webhook/validate-upload"
+        n8n_url = "https://primary-production-9e68.up.railway.app/webhook-test/webhook/validate-upload"
         webhook_payload = {
             "user_id": user_id,
             "filename": filename,
