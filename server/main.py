@@ -8,6 +8,7 @@ from datetime import datetime
 from fastapi.responses import JSONResponse
 import os
 import uvicorn 
+import httpx 
 
 
 print("✅ FastAPI app loading...")  # log to check app
