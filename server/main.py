@@ -50,7 +50,21 @@ async def upload_file(file: UploadFile = File(...), user_id: str = Form(...)):
         
         upload_to_supabase(storage_path, file_bytes)
         insert_metadata(user_id, filename, storage_path, timestamp)
-    
+
+        # ✅ Notify n8n webhook here
+        n8n_url = "https://primary-production-9e68.up.railway.app/webhook/webhook/validate-upload"
+        webhook_payload = {
+            "user_id": user_id,
+            "filename": filename,
+            "storage_path": storage_path,
+            "timestamp": timestamp
+        }
+        try:
+            async with httpx.AsyncClient() as client:
+                await client.post(n8n_url, json=webhook_payload, timeout=10)
+        except Exception as notify_error:
+            print(f"⚠️ Failed to notify n8n webhook: {str(notify_error)}")
+        
         return {"status": "success", "path": storage_path}
         
     except Exception as e:
